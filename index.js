@@ -38,13 +38,9 @@ document.getElementById("new-post").addEventListener("submit", (event) => {
         .then((res) => res.json())
         .then((post) => {
             console.log(post)
-
-            /**
-             * Challenge: Use our new renderPosts function to clean up this code.
-             * 
-             * Don't forget to update the postsArray variable first!
-             */
             postsArray.unshift(post);
             renderPosts(postsArray);
         })
+    document.getElementById("new-post").reset();
 })
+
