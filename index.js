@@ -1,16 +1,22 @@
 
+let postsArray = []
+
+function renderPosts(array) {
+    let html = "";
+    for (let post of array) {
+        html += `<h1>${post.title}</h1>
+        <p>${post.body}</p>
+        <hr />`;
+    }
+    document.getElementById("blog-list").innerHTML = html;
+
+}
 
 fetch("https://apis.scrimba.com/jsonplaceholder/posts", { method: "GET" })
     .then((response) => response.json())
     .then((data) => {
-        const postArray = data.slice(0, 5);
-        let html = "";
-        for (let post of postArray) {
-            html += `<h1>${post.title}</h1>
-            <p>${post.body}</p>
-            <hr />`;
-        }
-        document.getElementById("blog-list").innerHTML = html;
+        postsArray = data.slice(0, 5);
+        renderPosts(postsArray);
     })
 
 
@@ -30,14 +36,15 @@ document.getElementById("new-post").addEventListener("submit", (event) => {
             }
         })
         .then((res) => res.json())
-        .then((post) => console.log(post))
-    /**
-         * Challenge: Update the DOM with the new blog entry
-         */
+        .then((post) => {
+            console.log(post)
 
-    document.getElementById("blog-list").insertAdjacentHTML('afterbegin',
-        `<h1>${post.title}</h1>
-        <p>${post.body}</p>
-        <hr />
-        `);
+            /**
+             * Challenge: Use our new renderPosts function to clean up this code.
+             * 
+             * Don't forget to update the postsArray variable first!
+             */
+            postsArray.unshift(post);
+            renderPosts(postsArray);
+        })
 })
