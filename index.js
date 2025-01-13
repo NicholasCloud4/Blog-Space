@@ -30,15 +30,14 @@ document.getElementById("new-post").addEventListener("submit", (event) => {
             }
         })
         .then((res) => res.json())
-        .then((data) => console.log(data))
-})
+        .then((post) => console.log(post))
+    /**
+         * Challenge: Update the DOM with the new blog entry
+         */
 
-/**
-     * Challenge: Send this off to the server!
-     * 
-     * 1. BaseURL: https://apis.scrimba.com/jsonplaceholder/
-     * 2. Endpoint: /posts
-     * 3. method: ???
-     * 4. Request body: ??? (Remember to turn it into JSON)
-     * 5. Headers: ??? (Check the JSON Placeholder API docs or past casts for help)
-     */
+    document.getElementById("blog-list").insertAdjacentHTML('afterbegin',
+        `<h1>${post.title}</h1>
+        <p>${post.body}</p>
+        <hr />
+        `);
+})
