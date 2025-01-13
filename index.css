@@ -1,0 +1,36 @@
+/* index.css */
+
+body {
+    font-family: "Inter", serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-title {
+    font-size: 24px;
+    margin: 0;
+}
+
+#blog-list {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
